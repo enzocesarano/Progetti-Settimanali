@@ -169,3 +169,56 @@ h1 {
     padding: 0px 20px;
     margin-bottom: 50px;
 }
+
+/* FOOTER */
+
+footer {
+    background-color: #25a2c3;
+    padding: 90px 0px;
+    text-align: center;
+}
+
+footer h2 {
+    color: white;
+    font-size: 3.8em;
+    margin-bottom: 25px;
+}
+
+footer a, footer p {
+    color: #c8e7f0;
+}
+
+.contact {
+    display: inline-block;
+    text-align: left;
+    margin: auto;
+}
+
+.contact a {
+    font-size: 1.35em;
+}
+
+footer address {
+    font-style: normal;
+}
+
+address hr {
+    width: 19%;
+    border: none;
+    border-bottom: 1px solid white;
+    margin: 35px auto;
+}
+
+.copyr p {
+    font-size: 1.1em;
+}
+
+.copyr a {
+    font-size: 1em;
+}
+
+.contact i {
+    color: white;
+    padding-right: 7px;
+    font-size: 1.3em;
+}
