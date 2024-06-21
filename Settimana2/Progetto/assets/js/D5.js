@@ -15,7 +15,7 @@ console.log('*** ESERCIZIO 1 ***')
 
 const pets = ['dog', 'cat', 'hamster', 'redfish']
 
-for(let i = 0; i < pets.length; i++) {
+for (let i = 0; i < pets.length; i++) {
   console.log(pets[i]);
 }
 
@@ -84,8 +84,8 @@ const cars = [
 
 console.log('*** ESERCIZIO 5 ***')
 
-for(let i = 0; i < cars.length; i++) {
-  cars[i].licensePlate = 'AA' + ' ' + Math.floor(Math.random()* 1000) + ' ' + 'AA';
+for (let i = 0; i < cars.length; i++) {
+  cars[i].licensePlate = 'AA' + ' ' + Math.floor(Math.random() * 1000) + ' ' + 'AA';
 }
 
 console.log(cars)
@@ -140,7 +140,7 @@ console.log(justTrims);
 console.log('*** ESERCIZIO 8 ***')
 
 for (let i = 0; i < cars.length; i++) {
-  if(cars[i].color.charAt(0) === 'b'){
+  if (cars[i].color.charAt(0) === 'b') {
     console.log('Frizz');
   } else {
     console.log('Buzz');
@@ -155,7 +155,7 @@ const numericArray = [
   6, 90, 45, 75, 84, 98, 35, 74, 31, 2, 8, 23, 100, 32, 66, 313, 321, 105,
 ]
 
-console.log('*** ESERCIZIO 9 ***')
+console.log('*** ESERCIZIO 9 - Soluzione 1 ***')
 
 let i = -1;
 
@@ -163,6 +163,19 @@ while (numericArray[i] !== 32) {
   i++;
   console.log(numericArray[i]);
 }
+
+console.log('*** ESERCIZIO 9 - Soluzione 2 ***')
+
+let e = 0;
+
+while (e < numericArray.length) {
+  console.log(numericArray[e]);
+  if (numericArray[e] === 32) {
+    break;
+  }
+  e++;
+}
+
 
 
 /* ESERCIZIO 10
