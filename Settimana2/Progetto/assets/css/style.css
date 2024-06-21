@@ -51,7 +51,7 @@ main a:visited {
 }
 
 .giallo {
-    font-size: 1.2em;
+    font-size: 1em;
     color: white;
     background-color: #F56600;
     margin-bottom: 35px;
@@ -68,6 +68,7 @@ main a:visited {
     background-image: url(../images/bg-image.png);
     background-size: contain;
     padding: 60px 0px 60px 0px;
+    margin-bottom: 35px;
 }
 
 main section h2 {
@@ -86,35 +87,28 @@ main section p {
 .back2 {
     text-align: left;
     background-color: white;
-    padding: 30px 10px;
-    margin-top: 35px;
+    padding: 30px 30px;
+    margin-bottom: 35px;
 }
 
 .inline {
     font-size: 1.25em;
     display: inline-block;
-    padding: 0px 5px 0px 25px;
+    padding: 0px 5px 0px 0px;
 }
 
 .immagini {
     padding-bottom: 30px;
 }
 
-
-.immagini a {
-    padding: 0px 15px;
-}
-
-
 .card {
     text-align: center;
-    
 }
 
 .scheda1 {
     display: inline-block;
     width: 22%;
-    padding: 0px 25px 0px 25px;
+    padding-right: 49px;
 }
 
 .scheda1 img {
@@ -135,7 +129,6 @@ main section p {
 
 .back3 {
     margin: 30px 0px;
-    width: 100%;
 }
 
 .imgFull img {
