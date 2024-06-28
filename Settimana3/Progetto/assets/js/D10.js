@@ -782,3 +782,15 @@ halfTree(3);
 
 console.log('*** ESERCIZIO 29 - FUNZIONI ***')
 
+function primeNumber(number5) {
+
+  for(let i = 2; i < number5; i++){
+    if(number5 % 2 === 0) {
+      return console.log(`${number5} non è un numero primo`);
+    } else {
+      return console.log(`${number5} è un numero primo`);
+    }
+  }
+}
+
+primeNumber(121);
