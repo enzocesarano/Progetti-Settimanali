@@ -611,7 +611,7 @@ console.log(movies);
 */
 
 console.log('*** ESERCIZIO 20 - FUNZIONI ***')                   // Solo dimostrativo...
-                                                              // const idContenitore = document.getElementById('container');
+// const idContenitore = document.getElementById('container');
 const selectId = function () {
   const body = document.querySelector('body');
   const contenitore = document.createElement('div');
@@ -633,7 +633,7 @@ selectId();
 
 console.log('*** ESERCIZIO 21 - FUNZIONI ***')
 
-const selectTag = function() {
+const selectTag = function () {
   const tagTd = document.getElementsByTagName('td');
   console.log(tagTd);
 }
@@ -650,7 +650,7 @@ console.log('*** ESERCIZIO 22 - FUNZIONI ***')
 function cicle() {
   const cicloTd = document.getElementsByTagName('td');
 
-  for(let i = 0; i < cicloTd.length; i++) {
+  for (let i = 0; i < cicloTd.length; i++) {
     console.log(cicloTd[i].textContent);
   }
 }
@@ -783,14 +783,17 @@ halfTree(3);
 console.log('*** ESERCIZIO 29 - FUNZIONI ***')
 
 function primeNumber(number5) {
+  let stamp = `${number5} è un numero primo`;
 
-  for(let i = 2; i < number5; i++){
-    if(number5 % 2 === 0) {
-      return console.log(`${number5} non è un numero primo`);
-    } else {
-      return console.log(`${number5} è un numero primo`);
+  for (let i = 2; i <= number5 / 2; i++) {
+    if (number5 % i === 0) {
+      stamp = `${number5} non è un numero primo`;
+      break;
     }
+
   }
+
+  console.log(stamp)
 }
 
-primeNumber(121);
+primeNumber(7);
