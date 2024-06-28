@@ -191,11 +191,11 @@ console.log(deleteOne('Epicode', false));
 
 console.log('*** ESERCIZIO 5 - FUNZIONI ***')
 
-function onlyLetters() {
-
+function onlyLetters(string) {
+  return string.replace(/[0-9]/g, '');
 }
 
-onlyLetters('I have 4 dogs');
+console.log(onlyLetters('I have 4 dogs'));
 
 
 
@@ -572,13 +572,13 @@ const split2 = {
 };
 
 function searchAndDivide(string) {
-    movies.forEach(item => {
-      if (item.Title.toLowerCase().includes((string).toLowerCase())) {
-        split2.match.push(item);
-      } else {
-        split2.unmatch.push(item);
-      }
-    })
+  movies.forEach(item => {
+    if (item.Title.toLowerCase().includes((string).toLowerCase())) {
+      split2.match.push(item);
+    } else {
+      split2.unmatch.push(item);
+    }
+  })
 }
 
 searchAndDivide(('av'));
@@ -592,8 +592,13 @@ console.log(split2);
 
 console.log('*** ESERCIZIO 19 - FUNZIONI ***')
 
+function removeIndex(number) {
+  return movies.splice(number, 1);
+}
 
+removeIndex(10);
 
+console.log(movies);
 
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
@@ -602,29 +607,124 @@ console.log('*** ESERCIZIO 19 - FUNZIONI ***')
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+console.log('*** ESERCIZIO 20 - FUNZIONI ***')                   // Solo dimostrativo...
+                                                              // const idContenitore = document.getElementById('container');
+const selectId = function () {
+  const body = document.querySelector('body');
+  const contenitore = document.createElement('div');
+  contenitore.setAttribute('id', 'container');
+
+  body.appendChild(contenitore);
+
+  const idContenitore = document.getElementById('container');
+  idContenitore.innerHTML = '<p>Ciao a tutti! Questo testo è stato creato da JS</p>'
+  console.log(idContenitore.textContent)
+};
+
+selectId();
+
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+console.log('*** ESERCIZIO 21 - FUNZIONI ***')
+
+const selectTag = function() {
+  const tagTd = document.getElementsByTagName('td');
+  console.log(tagTd);
+}
+
+selectTag();
+
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+console.log('*** ESERCIZIO 22 - FUNZIONI ***')
+
+function cicle() {
+  const cicloTd = document.getElementsByTagName('td');
+
+  for(let i = 0; i < cicloTd.length; i++) {
+    console.log(cicloTd[i].textContent);
+  }
+}
+
+cicle();
+
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
+
+console.log('*** ESERCIZIO 23 - FUNZIONI ***')
+
+function bgColor() {
+  const aLink = document.querySelectorAll('a');
+  aLink.forEach(item => {
+    item.style.background = 'red';
+  })
+}
+
+bgColor();
+
 
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
 
+
+console.log('*** ESERCIZIO 24 - FUNZIONI ***')
+
+function elementsLi() {
+  const ulList = document.querySelector('ul')
+  ulList.setAttribute('id', 'myList');
+
+  const idList = document.getElementById('myList');
+  const liElement = document.createElement('li');
+  liElement.innerText = 'Elemento lista scritto in JS'
+
+
+  idList.appendChild(liElement);
+}
+
+elementsLi();
+
+
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+console.log('*** ESERCIZIO 25 - FUNZIONI ***')
+
+function deleteList() {
+  const ciaoList = document.getElementById('myList')
+  ciaoList.innerText = '';
+}
+
+/* deleteList(); */          // togliere il commento per provare. XD
+
+
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+console.log('*** ESERCIZIO 28 - FUNZIONI ***')
+
+function classTr() {
+  const trTable = document.querySelectorAll('tr');
+
+  trTable.forEach(item => {
+    item.classList.add('test');
+  })
+
+}
+
+classTr();
+
 
 // [EXTRA] JS Avanzato
 
