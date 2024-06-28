@@ -281,22 +281,24 @@ whatDayIsIt();
 
 console.log('*** ESERCIZIO 8 - FUNZIONI ***')
 
-const something = {};
 
 function rollTheDices(num) {
-  something.sum = 0;
-  something.values = [];
+  let sum = 0;
+  let values = [];
 
   for (let i = 0; i < num; i++) {
     let somma = dice();
-    something.values.push(somma);
-    something.sum += somma;
+    values.push(somma);
+    sum += somma;
   };
 
+  return {
+    sum,
+    values,
+  }
 }
 
-rollTheDices(6);
-console.log(something);
+console.log(rollTheDices(6));
 
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
@@ -319,7 +321,7 @@ console.log(howManyDays('2024, 02, 28') + ' giorni dalla data corrente');
 
 console.log('*** ESERCIZIO 10 - FUNZIONI ***')
 
-const myBorn = new Date('1992, 11, 12');
+const myBorn = new Date('1992, 11, 12');         // ho inserito la data di nascita, invece solo del giorno e il mese, per fare pratica con i vari metodi e gli operatori logici.
 
 function isTodayMyBirthday() {
   if (myBorn.getMonth() === date.getMonth() && myBorn.getDate() === date.getDate()) {    // "date" è una variabile globale che ho creato per l'esercizio 7.
