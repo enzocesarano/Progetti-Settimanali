@@ -764,9 +764,19 @@ halfTree(3);
 
 */
 
+console.log('*** ESERCIZIO 28 - FUNZIONI ***')
+
+function halfTree(numb) {
+  for (let i = 1; i <= numb; i++) {
+    console.log(' '.repeat(numb - i) + '*'.repeat(2 * i - 1));
+  }
+}
+
+halfTree(3);
+
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
 
-/* Questo array viene usato per gli esercizi. Non modificarlo. */
+console.log('*** ESERCIZIO 29 - FUNZIONI ***')
 
