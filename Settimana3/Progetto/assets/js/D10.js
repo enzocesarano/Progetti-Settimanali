@@ -192,7 +192,7 @@ console.log(deleteOne('Epicode', false));
 console.log('*** ESERCIZIO 5 - FUNZIONI ***')
 
 function onlyLetters(string) {
-  return string.replace(/[0-9]/g, '');
+  return string.replace(/[0-9]/g, '').replace(/\s{2}/g, ' ');
 }
 
 console.log(onlyLetters('I have 4 dogs'));
@@ -214,6 +214,7 @@ function isThisAnEmail(item) {
 }
 
 console.log(isThisAnEmail('vinc.cesarano@gmail.com'));
+
 
 
 /* ESERCIZIO 7
@@ -712,7 +713,7 @@ function deleteList() {
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
 
-console.log('*** ESERCIZIO 28 - FUNZIONI ***')
+console.log('*** ESERCIZIO 26 - FUNZIONI ***')
 
 function classTr() {
   const trTable = document.querySelectorAll('tr');
@@ -739,6 +740,17 @@ classTr();
   ***
 
 */
+
+console.log('*** ESERCIZIO 27 - FUNZIONI ***')
+
+function halfTree(numb) {
+  for (let i = 1; i <= numb; i++) {
+    console.log('*'.repeat(i));
+  }
+}
+
+halfTree(3);
+
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
