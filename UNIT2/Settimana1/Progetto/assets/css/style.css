@@ -64,7 +64,7 @@ nav ul li {
 }
 
 #casual > g {
-    opacity: 0; /* Imposta l'opacità iniziale */
+    opacity: 1;
 }
 
 
