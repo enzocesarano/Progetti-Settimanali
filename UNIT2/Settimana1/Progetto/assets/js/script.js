@@ -19,3 +19,27 @@ window.addEventListener('scroll', function () {
 });
 
 
+function animazione() {
+    let lettere = document.querySelectorAll('#casual > g');
+    
+    function letteraCasuale() {
+        for (let i = 0; i < lettere.length; i++) {
+            let numeroRandom = Math.floor(Math.random() * lettere.length);
+            setTimeout(() => {
+                alternareVisibilita(lettere[numeroRandom]);
+            }, i * 200);
+        }
+    }
+    letteraCasuale();
+    console.log(lettere);
+}
+
+function alternareVisibilita(lettera) {
+    if (lettera.style.opacity === '1') {
+        lettera.style.opacity = '0';
+    } else {
+        lettera.style.opacity = '1';
+    }
+}
+
+animazione();
