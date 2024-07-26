@@ -16,6 +16,9 @@ const inputImageUrl = document.getElementById('inputImageUrl')
 const inputPrice = document.getElementById('inputPrice')
 const formCard = document.getElementById('formCard')
 const btnCrea = document.getElementById('btnCrea')
+const formSearch = document.getElementById('formSearch')
+const inputSearch = document.getElementById('inputSearch')
+let products = [];
 
 const barParameters = new URLSearchParams(location.search).get('cardId')
 
@@ -36,10 +39,10 @@ if (barParameters) {
 
         .then((product1) => {
             inputName.value = product1.name,
-            inputDescription.value = product1.description,
-            inputBrand.value = product1.brand,
-            inputImageUrl.value = product1.imageUrl,
-            inputPrice.value = product1.price
+                inputDescription.value = product1.description,
+                inputBrand.value = product1.brand,
+                inputImageUrl.value = product1.imageUrl,
+                inputPrice.value = product1.price
         })
 
         .catch((error) => {
@@ -122,7 +125,8 @@ fetch("https://striveschool-api.herokuapp.com/api/product/", {
     })
 
     .then((product) => {
-        displayCard(product)
+        products = product;
+        displayCard(product);
     })
 
     .catch((error) => {
@@ -133,54 +137,96 @@ fetch("https://striveschool-api.herokuapp.com/api/product/", {
 
 let idParam;
 
-function displayCard(card) {
+
+formSearch.addEventListener('submit', function (e) {
+    e.preventDefault()
+    const search = inputSearch.value
+    console.log(search)
+    displayCard(products, search);
+    formSearch.reset()
+})
+
+function displayCard(card, search = '') {
     rowDetails.innerHTML = ''
-    card.forEach(element => {
-        rowDetails.innerHTML += `
-                    <div class="col">
-                        <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
-                            <div class="w-10">
-                                <img
+    if (search === '') {
+        card.forEach(element => {
+            rowDetails.innerHTML += `
+                <div class="col">
+                    <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
+                        <div class="w-10">
+                            <img
                               src="${element.imageUrl}"
                               class="bd-placeholder-img card-img-top show w-100"/>
-                            </div>
-                            <div class="card-body">
-                              <h5 class="card-title fs-6">${element.name}</h5>
-                              <p class="card-text">${element.description}
-                              </p>
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                                <button id="${element._id}" type="button" class="btn btn-info fs-supersmall mb-2 edit">Modifica</button>
-                                <button data-id="${element._id}" type="button" class="btn btn-danger fs-supersmall deleteProduct" data-bs-toggle="modal" data-bs-target="#deleteModal">Elimina</button>
-                            </div>
-                          </div>
                         </div>
-                      `
+                        <div class="card-body">
+                          <h5 class="card-title fs-6">${element.name}</h5>
+                          <p class="card-text">${element.brand}
+                          </p>
+                        </div>
+                        <div class="card-body text-end me-4">
+                          <h5 class="card-title fs-6">${element.description}</h5>
+                          <p class="card-text fw-bold">${element.price}€
+                          </p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                            <button id="${element._id}" type="button" class="btn btn-info fs-supersmall mb-2 edit">Modifica</button>
+                            <button data-id="${element._id}" type="button" class="btn btn-danger fs-supersmall deleteProduct" data-bs-toggle="modal" data-bs-target="#deleteModal">Elimina</button>
+                        </div>
+                      </div>
+                    </div>
+                  `
+        });
+    } else {
+        const filteredCard = card.filter(element => element.name.toLowerCase().includes(search.toLowerCase()));
+        filteredCard.forEach(element => {
+            rowDetails.innerHTML += `
+                <div class="col">
+                    <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
+                        <div class="w-10">
+                            <img
+                              src="${element.imageUrl}"
+                              class="bd-placeholder-img card-img-top show w-100"/>
+                        </div>
+                        <div class="card-body">
+                          <h5 class="card-title fs-6">${element.name}</h5>
+                          <p class="card-text">${element.brand}
+                          </p>
+                        </div>
+                        <div class="card-body text-end me-4">
+                          <h5 class="card-title fs-6">${element.description}</h5>
+                          <p class="card-text fw-bold">${element.price}€
+                          </p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center">
+                            <button id="${element._id}" type="button" class="btn btn-info fs-supersmall mb-2 edit">Modifica</button>
+                            <button data-id="${element._id}" type="button" class="btn btn-danger fs-supersmall deleteProduct" data-bs-toggle="modal" data-bs-target="#deleteModal">Elimina</button>
+                        </div>
+                      </div>
+                    </div>
+                  `
+        });
+    }
 
-        const edit = document.querySelectorAll('.edit')
+    const edit = document.querySelectorAll('.edit');
 
-        edit.forEach(element => {
-            element.addEventListener('click', function () {
-                const cardId = element.id;
-                location.assign(`./back-office.html?cardId=${cardId}`)
-                
-            })
-        })
-
-        const btnDelete = document.getElementById('btnDelete')
-        const deleteProduct = document.querySelectorAll('.deleteProduct')
-
-        deleteProduct.forEach(element => {
-            element.addEventListener('click', async function () {
-                const cardId = element.dataset.id;
-                btnDelete.addEventListener('click', function() {
-                    removeProduct(cardId);
-                })
-                
-            })
-        })
+    edit.forEach(element => {
+        element.addEventListener('click', function () {
+            const cardId = element.id;
+            location.assign(`./back-office.html?cardId=${cardId}`);
+        });
     });
 
+    const btnDelete = document.getElementById('btnDelete');
+    const deleteProduct = document.querySelectorAll('.deleteProduct');
+
+    deleteProduct.forEach(element => {
+        element.addEventListener('click', async function () {
+            const cardId = element.dataset.id;
+            btnDelete.addEventListener('click', function () {
+                removeProduct(cardId);
+            });
+        });
+    });
 }
 
 
@@ -195,9 +241,9 @@ function removeProduct(card) {
         .then((response) => {
             if (response.ok) {
                 alert('PRODOTTO ELIMINATO')
-                location.assign('./back-office.html') 
+                location.assign('./back-office.html')
             } else {
-                
+
                 throw new Error(err)
             }
         })

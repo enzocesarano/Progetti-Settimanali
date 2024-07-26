@@ -40,7 +40,7 @@ function displayCard(card, search = '') {
     if (search === '') {
         card.forEach(element => {
             row.innerHTML += `
-                <div class="col-2">
+                <div class="col">
                     <div id="${element._id}" class="card mb-4 shadow-sm pointer">
                         <div class="text-center p-3 h-Class">
                         <img
@@ -63,7 +63,7 @@ function displayCard(card, search = '') {
         card.forEach(element => {
             if(element.name.toLowerCase().includes(search.toLowerCase())) {
                 row.innerHTML += `
-                    <div class="col-2">
+                    <div class="col">
                         <div id="${element._id}" class="card mb-4 shadow-sm pointer">
                             <div class="text-center p-3 h-Class">
                             <img
