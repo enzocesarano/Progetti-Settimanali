@@ -120,5 +120,12 @@ $utilities: map-merge($utilities,
     cursor: pointer;
 }
 
+.h-Class {
+    height: 200px !important;
+    transition-duration: 0.3s;
+    &:hover {
+        transform: scale(1.05)
+    }
+}
 
 @import "scss/bootstrap.scss";

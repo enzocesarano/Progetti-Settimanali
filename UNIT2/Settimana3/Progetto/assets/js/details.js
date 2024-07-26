@@ -18,17 +18,21 @@ const object = function (query) {
         .then((card) => {
             console.log(card)
             row.innerHTML += `
-                <div class="col col-md-5">
+                <div class="col col-md-3">
                     <div class="card mb-4 shadow-sm">
-                        <img
+                      <div class="text-center p-5">
+                      <img
                           src="${card.imageUrl}"
-                          class="bd-placeholder-img card-img-top show w-100"/>
+                          class="bd-placeholder-img card-img-top show w-80"/>
+                      </div>
                         <div class="card-body">
                           <h5 class="card-title fs-6">${card.name}</h5>
+                           <p class="card-text fs-small">${card.brand}
                           <p class="card-text">${card.description}
                           </p>
-                          <div class="text-end">
-                            <small class="text-muted">id: <span>${card._id}</span></small>
+                          <div class="d-flex justify-content-between align-items-baseline">
+                            <h4>${card.price}€</h4>
+                            <small class="text-muted fs-supersmall">id: <span>${card._id}</span></small>
                           </div>
                         </div>
                       </div>

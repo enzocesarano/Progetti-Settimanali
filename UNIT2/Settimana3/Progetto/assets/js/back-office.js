@@ -36,10 +36,10 @@ if (barParameters) {
 
         .then((product1) => {
             inputName.value = product1.name,
-                inputBrand.value = product1.brand,
-                inputDescription.value = product1.description,
-                inputImageUrl.value = product1.imageUrl,
-                inputPrice.value = product1.price
+            inputDescription.value = product1.description,
+            inputBrand.value = product1.brand,
+            inputImageUrl.value = product1.imageUrl,
+            inputPrice.value = product1.price
         })
 
         .catch((error) => {
@@ -54,8 +54,8 @@ formCard.addEventListener('submit', function (e) {
     e.preventDefault()
     const newProduct = new Product(
         inputName.value,
-        inputBrand.value,
         inputDescription.value,
+        inputBrand.value,
         inputImageUrl.value,
         inputPrice.value
     )
@@ -138,7 +138,7 @@ function displayCard(card) {
     card.forEach(element => {
         rowDetails.innerHTML += `
                     <div class="col">
-                        <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light">
+                        <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
                             <div class="w-10">
                                 <img
                               src="${element.imageUrl}"
