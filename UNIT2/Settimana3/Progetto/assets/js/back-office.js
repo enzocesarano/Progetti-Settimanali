@@ -164,7 +164,7 @@ function displayCard(card, search = '') {
                           </p>
                         </div>
                         <div class="card-body text-end me-4">
-                          <h5 class="card-title fs-6">${element.description}</h5>
+                          <p class="card-title fs-6">${element.description}</p>
                           <p class="card-text fw-bold">${element.price}€
                           </p>
                         </div>
@@ -193,7 +193,7 @@ function displayCard(card, search = '') {
                           </p>
                         </div>
                         <div class="card-body text-end me-4">
-                          <h5 class="card-title fs-6">${element.description}</h5>
+                          <p class="card-title fs-6">${element.description}</p>
                           <p class="card-text fw-bold">${element.price}€
                           </p>
                         </div>
