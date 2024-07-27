@@ -146,6 +146,7 @@ formSearch.addEventListener('submit', function (e) {
     formSearch.reset()
 })
 
+
 function displayCard(card, search = '') {
     rowDetails.innerHTML = ''
     if (search === '') {
@@ -177,9 +178,9 @@ function displayCard(card, search = '') {
                   `
         });
     } else {
-        const filteredCard = card.filter(element => element.name.toLowerCase().includes(search.toLowerCase()));
-        filteredCard.forEach(element => {
-            rowDetails.innerHTML += `
+        card.forEach(element => {
+            if (element.name.toLowerCase().includes(search.toLowerCase())) {
+                rowDetails.innerHTML += `
                 <div class="col">
                     <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
                         <div class="w-10">
@@ -204,7 +205,8 @@ function displayCard(card, search = '') {
                       </div>
                     </div>
                   `
-        });
+            };
+        })
     }
 
     const edit = document.querySelectorAll('.edit');
