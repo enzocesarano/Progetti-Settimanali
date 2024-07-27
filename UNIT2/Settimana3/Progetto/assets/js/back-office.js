@@ -179,7 +179,7 @@ function displayCard(card, search = '') {
         });
     } else {
         card.forEach(element => {
-            if (element.name.toLowerCase().includes(search.toLowerCase())) {
+            if (element.name.toLowerCase().includes(search.toLowerCase()) || element.name.toLowerCase().includes(search.toLowerCase())) {
                 rowDetails.innerHTML += `
                 <div class="col">
                     <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">

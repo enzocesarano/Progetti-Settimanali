@@ -61,7 +61,7 @@ function displayCard(card, search = '') {
         });
     } else {
         card.forEach(element => {
-            if(element.name.toLowerCase().includes(search.toLowerCase())) {
+            if(element.name.toLowerCase().includes(search.toLowerCase()) || element.name.toLowerCase().includes(search.toLowerCase())) {
                 row.innerHTML += `
                     <div class="col">
                         <div id="${element._id}" class="card mb-4 shadow-sm pointer">
