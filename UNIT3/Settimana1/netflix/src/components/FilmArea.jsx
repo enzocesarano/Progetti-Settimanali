@@ -26,7 +26,7 @@ class FilmArea extends Component {
   render() {
     return (
       <Container fluid className="px-5">
-        <Row xs={2} md={2} lg={6} className="mb-3">
+        <Row xs={1} md={2} lg={6} className="mb-3">
           <Col>
             <Form onSubmit={this.handleSubmit}>
               <Form.Group className="d-flex align-items-center">
