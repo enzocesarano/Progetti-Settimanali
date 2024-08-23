@@ -1,157 +1,147 @@
-
 class Product {
-    constructor(_name, _description, _brand, _imageUrl, _price) {
-        this.name = _name
-        this.description = _description
-        this.brand = _brand
-        this.imageUrl = _imageUrl
-        this.price = _price
-    }
+  constructor(_name, _description, _brand, _imageUrl, _price) {
+    this.name = _name;
+    this.description = _description;
+    this.brand = _brand;
+    this.imageUrl = _imageUrl;
+    this.price = _price;
+  }
 }
 
-const inputName = document.getElementById('inputName')
-const inputBrand = document.getElementById('inputBrand')
-const inputDescription = document.getElementById('inputDescription')
-const inputImageUrl = document.getElementById('inputImageUrl')
-const inputPrice = document.getElementById('inputPrice')
-const formCard = document.getElementById('formCard')
-const btnCrea = document.getElementById('btnCrea')
-const formSearch = document.getElementById('formSearch')
-const inputSearch = document.getElementById('inputSearch')
+const inputName = document.getElementById("inputName");
+const inputBrand = document.getElementById("inputBrand");
+const inputDescription = document.getElementById("inputDescription");
+const inputImageUrl = document.getElementById("inputImageUrl");
+const inputPrice = document.getElementById("inputPrice");
+const formCard = document.getElementById("formCard");
+const btnCrea = document.getElementById("btnCrea");
+const formSearch = document.getElementById("formSearch");
+const inputSearch = document.getElementById("inputSearch");
 let products = [];
 
-const barParameters = new URLSearchParams(location.search).get('cardId')
-
+const barParameters = new URLSearchParams(location.search).get("cardId");
 
 if (barParameters) {
-    fetch(`https://striveschool-api.herokuapp.com/api/product/${barParameters}`, {
-        headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A"
-        }
-    })
-        .then((response) => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error('error')
-            }
-        })
-
-        .then((product1) => {
-            inputName.value = product1.name,
-                inputDescription.value = product1.description,
-                inputBrand.value = product1.brand,
-                inputImageUrl.value = product1.imageUrl,
-                inputPrice.value = product1.price
-        })
-
-        .catch((error) => {
-            console.log('errore', error)
-        })
-
-}
-
-
-
-formCard.addEventListener('submit', function (e) {
-    e.preventDefault()
-    const newProduct = new Product(
-        inputName.value,
-        inputDescription.value,
-        inputBrand.value,
-        inputImageUrl.value,
-        inputPrice.value
-    )
-
-    let methodCustom;
-    let urlCustom;
-
-    if (barParameters) {
-        urlCustom = `https://striveschool-api.herokuapp.com/api/product/${barParameters}`
-        methodCustom = 'PUT'
-    } else {
-        urlCustom = `https://striveschool-api.herokuapp.com/api/product/`
-        methodCustom = 'POST'
-    }
-
-    fetch(urlCustom, {
-        method: methodCustom,
-
-        body: JSON.stringify(newProduct),
-
-        headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A",
-            'Content-Type': 'application/json'
-        },
-
-    })
-        .then((response) => {
-            if (response.ok) {
-                return response.json()
-            } else {
-                throw new Error('error')
-            }
-        })
-
-        .then((product) => {
-            console.log(product)
-
-        })
-
-        .catch((error) => {
-            console.log('errore', error)
-        })
-
-    setInterval(() => {
-        location.assign(`./back-office.html`)
-    }, 200);
-})
-
-
-const rowDetails = document.getElementById('rowDetails')
-
-
-fetch("https://striveschool-api.herokuapp.com/api/product/", {
+  fetch(`https://striveschool-api.herokuapp.com/api/product/${barParameters}`, {
     headers: {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A"
-    }
-})
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A",
+    },
+  })
     .then((response) => {
-        if (response.ok) {
-            return response.json()
-        } else {
-            throw new Error('error')
-        }
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("error");
+      }
     })
 
-    .then((product) => {
-        products = product;
-        displayCard(product);
+    .then((product1) => {
+      (inputName.value = product1.name),
+        (inputDescription.value = product1.description),
+        (inputBrand.value = product1.brand),
+        (inputImageUrl.value = product1.imageUrl),
+        (inputPrice.value = product1.price);
     })
 
     .catch((error) => {
-        console.log('errore', error)
+      console.log("errore", error);
+    });
+}
+
+formCard.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const newProduct = new Product(
+    inputName.value,
+    inputDescription.value,
+    inputBrand.value,
+    inputImageUrl.value,
+    inputPrice.value
+  );
+
+  let methodCustom;
+  let urlCustom;
+
+  if (barParameters) {
+    urlCustom = `https://striveschool-api.herokuapp.com/api/product/${barParameters}`;
+    methodCustom = "PUT";
+  } else {
+    urlCustom = `https://striveschool-api.herokuapp.com/api/product/`;
+    methodCustom = "POST";
+  }
+
+  fetch(urlCustom, {
+    method: methodCustom,
+
+    body: JSON.stringify(newProduct),
+
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("error");
+      }
     })
 
+    .then((product) => {
+      console.log(product);
+    })
 
+    .catch((error) => {
+      console.log("errore", error);
+    });
+
+  setInterval(() => {
+    location.assign(`./back-office.html`);
+  }, 200);
+});
+
+const rowDetails = document.getElementById("rowDetails");
+
+fetch("https://striveschool-api.herokuapp.com/api/product/", {
+  headers: {
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A",
+  },
+})
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error("error");
+    }
+  })
+
+  .then((product) => {
+    products = product;
+    displayCard(product);
+  })
+
+  .catch((error) => {
+    console.log("errore", error);
+  });
 
 let idParam;
 
+formSearch.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const search = inputSearch.value;
+  console.log(search);
+  displayCard(products, search);
+  formSearch.reset();
+});
 
-formSearch.addEventListener('submit', function (e) {
-    e.preventDefault()
-    const search = inputSearch.value
-    console.log(search)
-    displayCard(products, search);
-    formSearch.reset()
-})
-
-
-function displayCard(card, search = '') {
-    rowDetails.innerHTML = ''
-    if (search === '') {
-        card.forEach(element => {
-            rowDetails.innerHTML += `
+function displayCard(card, search = "") {
+  rowDetails.innerHTML = "";
+  if (search === "") {
+    card.forEach((element) => {
+      rowDetails.innerHTML += `
                 <div class="col">
                     <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
                         <div class="w-10">
@@ -175,12 +165,15 @@ function displayCard(card, search = '') {
                         </div>
                       </div>
                     </div>
-                  `
-        });
-    } else {
-        card.forEach(element => {
-            if (element.name.toLowerCase().includes(search.toLowerCase()) || element.name.toLowerCase().includes(search.toLowerCase())) {
-                rowDetails.innerHTML += `
+                  `;
+    });
+  } else {
+    card.forEach((element) => {
+      if (
+        element.name.toLowerCase().includes(search.toLowerCase()) ||
+        element.name.toLowerCase().includes(search.toLowerCase())
+      ) {
+        rowDetails.innerHTML += `
                 <div class="col">
                     <div class="card mb-2 shadow-sm d-flex flex-row align-items-center p-2 bg-secondary text-light shadow">
                         <div class="w-10">
@@ -204,55 +197,51 @@ function displayCard(card, search = '') {
                         </div>
                       </div>
                     </div>
-                  `
-            };
-        })
-    }
-
-    const edit = document.querySelectorAll('.edit');
-
-    edit.forEach(element => {
-        element.addEventListener('click', function () {
-            const cardId = element.id;
-            location.assign(`./back-office.html?cardId=${cardId}`);
-        });
+                  `;
+      }
     });
+  }
 
-    const btnDelete = document.getElementById('btnDelete');
-    const deleteProduct = document.querySelectorAll('.deleteProduct');
+  const edit = document.querySelectorAll(".edit");
 
-    deleteProduct.forEach(element => {
-        element.addEventListener('click', async function () {
-            const cardId = element.dataset.id;
-            btnDelete.addEventListener('click', function () {
-                removeProduct(cardId);
-            });
-        });
+  edit.forEach((element) => {
+    element.addEventListener("click", function () {
+      const cardId = element.id;
+      location.assign(`./back-office.html?cardId=${cardId}`);
     });
+  });
+
+  const btnDelete = document.getElementById("btnDelete");
+  const deleteProduct = document.querySelectorAll(".deleteProduct");
+
+  deleteProduct.forEach((element) => {
+    element.addEventListener("click", async function () {
+      const cardId = element.dataset.id;
+      btnDelete.addEventListener("click", function () {
+        removeProduct(cardId);
+      });
+    });
+  });
 }
-
 
 function removeProduct(card) {
-    fetch(`https://striveschool-api.herokuapp.com/api/product/${card}`, {
-        method: 'DELETE',
+  fetch(`https://striveschool-api.herokuapp.com/api/product/${card}`, {
+    method: "DELETE",
 
-        headers: {
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A"
-        }
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWY3OGIzN2FiYWQyODAwMTliZDRiNWYiLCJpYXQiOjE3MjE5ODA0NzgsImV4cCI6MTcyMzE5MDA3OH0.dI-R20SsU4EHqh3nceKxn3w6kDXN5kVsi0llx1wVV-A",
+    },
+  })
+    .then((response) => {
+      if (response.ok) {
+        alert("PRODOTTO ELIMINATO");
+        location.assign("./back-office.html");
+      } else {
+        throw new Error(err);
+      }
     })
-        .then((response) => {
-            if (response.ok) {
-                alert('PRODOTTO ELIMINATO')
-                location.assign('./back-office.html')
-            } else {
-
-                throw new Error(err)
-            }
-        })
-        .catch((err) => {
-            console.log('error', err)
-        })
-
+    .catch((err) => {
+      console.log("error", err);
+    });
 }
-
-
