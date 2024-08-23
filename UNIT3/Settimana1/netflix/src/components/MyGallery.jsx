@@ -16,7 +16,7 @@ class MyGallery extends Component {
   };
 
   myFetch = () => {
-    fetch(`https://www.omdbapi.com/?apikey=e24d604e&s=${this.props.gallery}`)
+    fetch(`https://www.omdbapi.com/?apikey=e24d604e&s=${this.state.gallery}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
