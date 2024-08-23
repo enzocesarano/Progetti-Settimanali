@@ -41,9 +41,6 @@ class MyNav extends Component {
                 <Nav.Link href="#">My List</Nav.Link>
               </Nav>
               <div className="d-flex align-items-center justify-content-lg-end position-relative">
-                <NavLink href="#">
-                  <i className="bi bi-search text-light fs-4 me-3"></i>
-                </NavLink>
                 <Nav.Link href="#" className="me-3 active text-light">
                   KIDS
                 </Nav.Link>
