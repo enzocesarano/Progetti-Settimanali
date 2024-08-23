@@ -12,8 +12,8 @@ class FilmArea extends Component {
     this.setState({ searchTerm: event.target.value });
   };
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
 
     if (this.state.searchTerm.trim() && !this.state.gallery.includes(this.state.searchTerm.trim())) {
       this.setState((prevState) => ({
