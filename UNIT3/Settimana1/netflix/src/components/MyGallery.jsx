@@ -6,7 +6,6 @@ import CardLoading from "./CardLoading";
 class MyGallery extends Component {
   state = {
     filmsArray: [],
-    gallery: this.props.gallery,
     loading: true,
     error: false,
   };
@@ -15,8 +14,14 @@ class MyGallery extends Component {
     this.myFetch();
   };
 
+  componentDidUpdate = (prevProps) => {
+    if(prevProps.gallery !== this.props.gallery) {
+      this.myFetch()
+    }
+  }
+
   myFetch = () => {
-    fetch(`https://www.omdbapi.com/?apikey=e24d604e&s=${this.state.gallery}`)
+    fetch(`https://www.omdbapi.com/?apikey=e24d604e&s=${this.props.gallery}`)
       .then((response) => {
         if (response.ok) {
           return response.json();
@@ -26,7 +31,7 @@ class MyGallery extends Component {
       })
 
       .then((arrayFilm) => {
-        const films = arrayFilm.Search.slice(0, 6);
+        const films = arrayFilm.Search ? arrayFilm.Search.slice(0, 6) : []
         this.setState(
           {
             ...this.state,
@@ -52,7 +57,7 @@ class MyGallery extends Component {
     return (
       <Row className="pb-5 border border-0 border-bottom border-1 border-secondary mb-4">
         <Col xs={12}>
-          <h2 className="text-light mb-3 text-capitalize">{this.state.gallery}</h2>
+          <h2 className="text-light mb-3 text-capitalize">{this.props.gallery}</h2>
         </Col>
         <Col>
           <Row xs={2} md={4} lg={6}>
