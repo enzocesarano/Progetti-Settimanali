@@ -1,13 +1,10 @@
 import { Card } from "react-bootstrap";
 
 const formatDateTime = (dateTimeStr) => {
-  const date = new Date(dateTimeStr);
 
-  
+  const date = new Date(dateTimeStr);
   const days = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
- 
   const dayName = days[date.getDay()];
-  
   const hours = date.getHours().toString().padStart(2, '0');
   const minutes = date.getMinutes().toString().padStart(2, '0');
 
