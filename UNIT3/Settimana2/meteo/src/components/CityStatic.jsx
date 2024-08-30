@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import OneCityStatic from "./OneCityStatic";
 
 const CityStatic = ( {changeCity} ) => {
-  const [search] = useState(["Milano", "Roma", "Torino"]);
+  const [search] = useState(["Milano", "New York", "Londra"]);
   const [cities, setCities] = useState([]);
 
 

@@ -67,8 +67,8 @@ const MeteoAera = () => {
 
   return (
     <div className="bg-dark p-4">
-      <Container fluid className="bg-black vh-100 rounded-4 p-5">
-        <Row className="align-items-center mb-3">
+      <Container fluid className="bg-black rounded-4 p-5">
+        <Row className="align-items-center mb-4">
           <Col>{city.city && <City cityProp={city.city.name} />}</Col>
           <Col>
             <SearchCity changeCity={changeCity} />
