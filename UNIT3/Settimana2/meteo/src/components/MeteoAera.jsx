@@ -77,12 +77,12 @@ const MeteoAera = () => {
         </Row>
         <Row>{city.city && <Daily cityProp={city} />}</Row>
         <Row>
-          <Col className="col-2">
+          <Col className="col-12 col-lg-2 mb-4 mb-lg-0">
             <Row className="flex-column g-2">
               <CityStatic changeCity={(e) => changeCity(e)} />
             </Row>
           </Col>
-          <Col className="ps-5 pe-0">
+          <Col className="col-12 col-lg-10 ps-5 pe-0">
             {cityDaily.coord && (
               <WeatherMap lat={cityDaily.coord.lat} lon={cityDaily.coord.lon}/>
             )}
