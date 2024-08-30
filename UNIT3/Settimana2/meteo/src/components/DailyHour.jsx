@@ -1,16 +1,28 @@
-import { Card, Col } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+
+const formatDateTime = (dateTimeStr) => {
+  const date = new Date(dateTimeStr);
+
+  
+  const days = ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'];
+ 
+  const dayName = days[date.getDay()];
+  
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+
+  return `${dayName} ${hours}:${minutes}`;
+};
 
 const DailyHour = ({ cityProp }) => {
   const iconUrl = `http://openweathermap.org/img/w/${cityProp.weather[0].icon}.png`;
   const temperature = cityProp.main.feels_like.toFixed(1);
 
-
-
   return (
     <Card className="bg-dark d-inline-block me-3" style={{ width: "200px" }}>
       <Card.Body className="d-flex flex-wrap">
         <Card.Text className="text-secondary fs-6 align-self-center mb-0">
-          {cityProp.dt_txt}
+          {formatDateTime(cityProp.dt_txt)}
         </Card.Text>
         <div className="w-50">
           <Card.Img src={iconUrl} className="w-100" />
@@ -26,7 +38,7 @@ const DailyHour = ({ cityProp }) => {
           </Card.Text>
 
           <Card.Text className="text-light fs-5 align-self-center mb-0 d-flex flex-column justify-content-center align-items-center">
-          <i className="bi bi-wind" />
+            <i className="bi bi-wind" />
             {cityProp.wind.speed}
           </Card.Text>
 
@@ -39,7 +51,6 @@ const DailyHour = ({ cityProp }) => {
             <i className="bi bi-cloud"/>
             {cityProp.clouds.all}
           </Card.Text>
-          
         </Card.Body>
       </Card.Body>
     </Card>
