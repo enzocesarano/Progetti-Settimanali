@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import OneCityStatic from "./OneCityStatic";
-import { Col } from "react-bootstrap";
 
-const CityStatic = () => {
+const CityStatic = ( {changeCity} ) => {
   const [search] = useState(["Milano", "Roma", "Torino"]);
   const [cities, setCities] = useState([]);
+
 
   useEffect(() => {
     myFetchDay();
@@ -20,6 +20,8 @@ const CityStatic = () => {
 
       const results = await Promise.all(requests);
       setCities(results);
+      console.log(cities)
+
     } catch (err) {
       console.error("Error fetching data: ", err);
     }
@@ -27,7 +29,7 @@ const CityStatic = () => {
 
   return (
       cities.map((city, index) => (
-          <OneCityStatic key={index} city={city} />
+          <OneCityStatic key={index} city={city} onClick1={(e) => changeCity(e)} />
       ))
   );
 };

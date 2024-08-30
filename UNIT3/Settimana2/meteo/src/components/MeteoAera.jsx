@@ -5,6 +5,8 @@ import City from "./City";
 import Icon from "./Icon";
 import Daily from "./Daily";
 import CityStatic from "./CityStatic";
+import WeatherMap from "./WeatherMap";
+import 'leaflet/dist/leaflet.css';
 
 const MeteoAera = () => {
   const [search, setSearch] = useState("napoli");
@@ -34,7 +36,6 @@ const MeteoAera = () => {
 
       .then((forecast) => {
         setCity(forecast);
-        console.log(forecast);
       })
 
       .catch((err) => {
@@ -56,7 +57,7 @@ const MeteoAera = () => {
 
       .then((daily) => {
         setCityDaily(daily);
-        console.log(daily);
+        console.log(cityDaily);
       })
 
       .catch((err) => {
@@ -66,8 +67,8 @@ const MeteoAera = () => {
 
   return (
     <div className="bg-dark p-4">
-      <Container fluid className="bg-black rounded-4 p-5">
-        <Row className="align-items-center mb-5">
+      <Container fluid className="bg-black vh-100 rounded-4 p-5">
+        <Row className="align-items-center mb-3">
           <Col>{city.city && <City cityProp={city.city.name} />}</Col>
           <Col>
             <SearchCity changeCity={changeCity} />
@@ -75,8 +76,17 @@ const MeteoAera = () => {
           <Col>{cityDaily.name && <Icon iconProps={cityDaily} />}</Col>
         </Row>
         <Row>{city.city && <Daily cityProp={city} />}</Row>
-        <Row className="flex-column">
-          <CityStatic changeCity={changeCity}/>
+        <Row>
+          <Col className="col-2">
+            <Row className="flex-column g-2">
+              <CityStatic changeCity={(e) => changeCity(e)} />
+            </Row>
+          </Col>
+          <Col className="ps-5 pe-0">
+            {cityDaily.coord && (
+              <WeatherMap lat={cityDaily.coord.lat} lon={cityDaily.coord.lon}/>
+            )}
+          </Col>
         </Row>
       </Container>
     </div>
