@@ -18,7 +18,7 @@ const DailyHour = ({ cityProp }) => {
   return (
     <Card className="bg-dark d-inline-block me-3" style={{ width: "200px" }}>
       <Card.Body className="d-flex flex-wrap">
-        <Card.Text className="text-secondary fs-6 align-self-center mb-0">
+        <Card.Text className="text-secondary fs-6 text-center mb-0 w-100">
           {formatDateTime(cityProp.dt_txt)}
         </Card.Text>
         <div className="w-50">
