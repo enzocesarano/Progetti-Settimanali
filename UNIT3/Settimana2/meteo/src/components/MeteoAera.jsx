@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import Maps from "./WeatherMap";
 import SearchCity from "./SearchCity";
 import { Col, Container, Row } from "react-bootstrap";
 import City from "./City";
 import Icon from "./Icon";
 import Daily from "./Daily";
-import WeatherMap from "./WeatherMap";
 import CityStatic from "./CityStatic";
 
 const MeteoAera = () => {
@@ -67,7 +65,7 @@ const MeteoAera = () => {
   };
 
   return (
-    <div className="bg-dark vh-100 p-5">
+    <div className="bg-dark p-4">
       <Container fluid className="bg-black rounded-4 p-5">
         <Row className="align-items-center mb-5">
           <Col>{city.city && <City cityProp={city.city.name} />}</Col>
@@ -77,8 +75,8 @@ const MeteoAera = () => {
           <Col>{cityDaily.name && <Icon iconProps={cityDaily} />}</Col>
         </Row>
         <Row>{city.city && <Daily cityProp={city} />}</Row>
-        <Row>
-        <CityStatic />
+        <Row className="flex-column">
+          <CityStatic changeCity={changeCity}/>
         </Row>
       </Container>
     </div>
