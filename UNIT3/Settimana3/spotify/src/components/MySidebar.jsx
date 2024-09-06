@@ -2,6 +2,7 @@ import { Navbar, Nav, Button, Container, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { arraySearch, songSearch } from "../actions";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
 
@@ -36,12 +37,12 @@ function Sidebar() {
             />
           </Navbar.Brand>
           <Nav className="flex-column">
-            <Nav.Link
-              href="#"
-              className="d-flex align-items-center text-secondary"
+            <Link 
+              to="/"
+              className="nav-link d-flex align-items-center text-secondary"
             >
               <i className="bi bi-house-door-fill"></i>&nbsp; Home
-            </Nav.Link>
+            </Link>
 
             <Nav.Link
               href="#"
@@ -64,7 +65,7 @@ function Sidebar() {
               </Form.Group>
             </Form>
             {arrayPref[0] && (<div>
-              <p className="text-light fs-6">Brani che ti piacciono <i className="bi bi-heart-fill text-danger"></i></p>
+              <Link to="/liked" className="nav-link text-light fs-6">Brani che ti piacciono <i className="bi bi-heart-fill text-danger"></i></Link>
             </div>)}
           </Nav>
         </Container>
