@@ -6,7 +6,9 @@ const Player = () => {
   const songsClick = useSelector((state) => state.clicked.clicked);
   const arrayPref = useSelector((store) => store.arrayPref.arrayPref);
 
-  const selected = arrayPref.map((element) => element.id).includes(songsClick.id);
+  const selected = arrayPref
+    .map((element) => element.id)
+    .includes(songsClick.id);
 
   const dispatch = useDispatch();
 
@@ -18,19 +20,22 @@ const Player = () => {
             <Col className="col-2">
               {songsClick.album && (
                 <div className="w-100 d-flex justify-content-between align-items-center">
-                  <img
-                    src={songsClick.album.cover}
-                    className="w-25 object-fit-contain me-2"
-                    alt={songsClick.album.title}
-                  />
-                  <div className="d-flex flex-column justify-content-center">
-                    <p className="text-light fs-supersmall overflow-x-hidden mb-0">
-                      {songsClick.title_short}
-                    </p>
-                    <p className="text-light fs-supersmall overflow-x-hidden mb-0">
-                      {songsClick.artist.name}
-                    </p>
+                  <div className="d-flex">
+                    <img
+                      src={songsClick.album.cover}
+                      className="w-25 object-fit-contain me-2"
+                      alt={songsClick.album.title}
+                    />
+                    <div className="d-flex flex-column justify-content-center">
+                      <p className="text-light fs-supersmall overflow-x-hidden mb-0">
+                        {songsClick.title_short}
+                      </p>
+                      <p className="text-light fs-supersmall overflow-x-hidden mb-0">
+                        {songsClick.artist.name}
+                      </p>
+                    </div>
                   </div>
+
                   <div>
                     <i
                       className={
