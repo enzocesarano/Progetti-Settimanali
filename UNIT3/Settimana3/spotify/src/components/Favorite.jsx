@@ -21,7 +21,7 @@ const Favorite = function () {
           {arrayPref.map((single, i) => (
             <Col
               key={i}
-              className="text-center"
+              className="text-center pointer"
               onClick={() => {
                 dispatch(clicked(single));
               }}

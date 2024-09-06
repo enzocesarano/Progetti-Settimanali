@@ -187,3 +187,7 @@ ul {
 .mb-big {
   margin-bottom: 5em;
 }
+
+.pointer {
+  cursor: pointer;
+}

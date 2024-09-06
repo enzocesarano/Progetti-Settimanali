@@ -21,7 +21,7 @@ const SingleMusic = function ({ name, category }) {
       <Col>
         <Row>
           {songsArray.slice(0,4).map((single, i) => (
-            <Col key={i} className="text-center" onClick={() => {
+            <Col key={i} className="text-center pointer" onClick={() => {
                 dispatch(clicked(single))
               }}>
               <img className="img-fluid mb-2" src={single.album.cover_medium} alt="track" />
