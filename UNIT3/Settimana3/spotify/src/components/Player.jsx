@@ -22,7 +22,7 @@ const Player = () => {
                 <div className="w-100 d-flex justify-content-between align-items-center">
                   <div className="d-flex">
                     <img
-                      src={songsClick.album.cover}
+                      src={songsClick.album.cover_big}
                       className="w-25 object-fit-contain me-2"
                       alt={songsClick.album.title}
                     />
