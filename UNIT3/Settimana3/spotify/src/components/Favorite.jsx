@@ -16,8 +16,8 @@ const Favorite = function () {
       <Col className="col-12 text-light mb-3">
         <h2>Brani che ti piacciono <i className="bi bi-heart-fill text-danger"></i></h2>
       </Col>
-      <Col>
-        <Row>
+      <Col className="col-12">
+        <Row className="row-cols-6">
           {arrayPref.map((single, i) => (
             <Col
               key={i}

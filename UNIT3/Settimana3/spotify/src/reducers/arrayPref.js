@@ -17,7 +17,7 @@ const arrayPref = (state = initialState, action) => {
       return {
         ...state,
         arrayPref: state.arrayPref.filter(
-          (state) => state._id !== action.payload._id
+          (state) => state.id !== action.payload.id
         ),
       };
 
