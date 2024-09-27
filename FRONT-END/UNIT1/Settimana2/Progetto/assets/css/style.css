@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3em;
+}
+
+.bgDark {
+    background-color: #222F3F;
+}
+
+.bgSemiDark {
+    background-color: #364759;
+}
+
+header .bgDark {
+    text-align: left;
+}
+
+header .bgSemiDark {
+    padding: 10px 25px;
+}
+
+#logo {
+    padding: 10px 35px;
+}
+
+a:link,
+a:hover,
+a:visited {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+/* MAIN */
+
+main {
+    padding: 30px;
+    text-align: center;
+    background-color: #E9EDEE;
+}
+
+main a {
+    font-weight: bolder;
+}
+
+main a:link,
+main a:hover,
+main a:visited {
+    text-decoration: none;
+    color: #007185;
+}
+
+.giallo {
+    font-size: 1em;
+    color: white;
+    background-color: #F56600;
+    margin-bottom: 35px;
+}
+
+.giallo h4 {
+    padding: 15px;
+}
+
+/* PRIMA SECTION */
+
+.back1 {
+    color: white;
+    background-image: url(../images/bg-image.png);
+    background-size: contain;
+    padding: 60px 0px 60px 0px;
+    margin-bottom: 35px;
+}
+
+main section h2 {
+    font-size: 1.9em;
+    font-weight: 600;
+    padding: 35px;
+}
+
+main section p {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* SECONDA SECTION */
+
+.back2 {
+    text-align: left;
+    background-color: white;
+    padding: 30px 30px;
+    margin-bottom: 35px;
+}
+
+.inline {
+    font-size: 1.25em;
+    display: inline-block;
+    padding: 0px 5px 0px 0px;
+}
+
+.immagini {
+    padding-bottom: 30px;
+}
+
+.card {
+    text-align: center;
+}
+
+.scheda1 {
+    display: inline-block;
+    width: 22%;
+    padding-right: 49px;
+}
+
+.scheda1 img {
+    border-radius: 5%;
+    box-shadow: 10px 10px 15px #8b8b8b;
+    object-fit: cover;
+    height: 55vh;
+    transition-duration: 0.3s;
+}
+
+.scheda1 img:hover {
+    transform: scale(1.02);
+    transition-duration: 0.2s;
+    box-shadow: 10px 10px 25px #8b8b8b;
+}
+
+/* TERZA / QUARTA SECTION */
+
+.back3 {
+    margin: 30px 0px;
+}
+
+.imgFull img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.back3title {
+    text-align: center;
+    display: inline-block;
+}
+
+.back3title h2,
+.back3title a {
+    padding: 10px;
+}
+
+/* FOOTER */
+
+.bgDark {
+    text-align: center;
+}
+
+.bgSemiDark {
+    padding: 20px;
+}
+
+footer .bgSemiDark a {
+    text-decoration: underline;
+}
+
+.logo2 img {
+    width: 200px;
+}
+
+.logo2 {
+    padding: 90px;
+}
