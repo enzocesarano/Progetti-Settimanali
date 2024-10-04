@@ -33,7 +33,7 @@ public class Application {
         giochiDaTavoloList.add(new GiochiDaTavolo(14, "Dixit", LocalDate.of(2008, 3, 20), 30, 6, 30));
         giochiDaTavoloList.add(new GiochiDaTavolo(15, "Splendor", LocalDate.of(2014, 5, 9), 35, 4, 30));
 
-        List<CollectionGames> listaDeiGiochi = new ArrayList<>();
+        ArrayList<CollectionGames> listaDeiGiochi = new ArrayList<>();
         listaDeiGiochi.addAll(videoGamesList);
         listaDeiGiochi.addAll(giochiDaTavoloList);
 
@@ -68,10 +68,10 @@ public class Application {
 
                     switch (tipoGioco) {
                         case 1:
-                            AggiungiGames.VideoGame(scanner, (ArrayList<VideoGames>) videoGamesList);
+                            AggiungiGames.VideoGame(scanner, listaDeiGiochi);
                             break;
                         case 2:
-                            AggiungiGames.GiocoDaTavola(scanner, (ArrayList<GiochiDaTavolo>) giochiDaTavoloList);
+                            AggiungiGames.GiocoDaTavola(scanner, listaDeiGiochi);
                             break;
                         case 0:
                             System.out.println("Operazione annullata.");
@@ -82,16 +82,16 @@ public class Application {
                     }
                     break;
                 case 2:
-                    Ricerca.ricercaPerId(scanner, (ArrayList<CollectionGames>) listaDeiGiochi);
+                    Ricerca.ricercaPerId(scanner, listaDeiGiochi);
                     break;
                 case 3:
-                    Ricerca.ricercaPerPrezzo(scanner, (ArrayList<CollectionGames>) listaDeiGiochi);
+                    Ricerca.ricercaPerPrezzo(scanner, listaDeiGiochi);
                     break;
                 case 4:
                     Ricerca.ricercaPerNumeroGiocatori(scanner, (ArrayList<GiochiDaTavolo>) giochiDaTavoloList);
                     break;
                 case 5:
-                    setGames.rimuoviGioco(scanner, (ArrayList<CollectionGames>) listaDeiGiochi);
+                    setGames.rimuoviGioco(scanner, listaDeiGiochi);
                     break;
                 case 6:
                     System.out.println("Seleziona il tipo di gioco da aggiornare:");
@@ -118,10 +118,10 @@ public class Application {
                     }
                     break;
                 case 7:
-                    Statistic.mostraStatistiche((ArrayList<CollectionGames>) listaDeiGiochi);
+                    Statistic.mostraStatistiche(listaDeiGiochi);
                     break;
                 case 8:
-                    ListaAllGames.listaDeiGiochi((ArrayList<CollectionGames>) listaDeiGiochi);
+                    ListaAllGames.listaDeiGiochi(listaDeiGiochi);
                     System.out.println("Digita qualsiasi lettera per tornare al menù principale");
                     scanner.next();
                     break;

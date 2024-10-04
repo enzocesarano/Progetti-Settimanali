@@ -1,5 +1,6 @@
 package enzocesarano.utils;
 
+import enzocesarano.entities.CollectionGames;
 import enzocesarano.entities.GiochiDaTavolo;
 import enzocesarano.entities.VideoGames;
 
@@ -9,7 +10,7 @@ import java.util.Scanner;
 
 public class AggiungiGames {
 
-    public static void VideoGame(Scanner scanner, ArrayList<VideoGames> list) {
+    public static void VideoGame(Scanner scanner, ArrayList<CollectionGames> list) {
         int idGame = 0;
         boolean idValido = false;
 
@@ -82,9 +83,10 @@ public class AggiungiGames {
 
         list.add(new VideoGames(idGame, title, yearPublication, price, piattaforma, durataGioco, genere));
         System.out.println("Gioco aggiunto con successo!");
+        System.out.println("Lista aggiornata: " + list);
     }
 
-    public static void GiocoDaTavola(Scanner scanner, ArrayList<GiochiDaTavolo> list) {
+    public static void GiocoDaTavola(Scanner scanner, ArrayList<CollectionGames> list) {
         int idGame = 0;
         boolean idValido = false;
 
